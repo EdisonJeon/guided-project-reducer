@@ -1,19 +1,9 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import actions from "../actions/title.actions";
-import reducer from "../reducers/title.reducer";
+import reducer, { initialState } from "../reducers/title.reducer";
 
 const Title = () => {
-  const initialState = {
-    title: "Hello earthlings",
-    editing: false,
-    newTitleText: "",
-  };
-
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const handleChanges = (e) => {
-    dispatch(actions.setNewTextTitle(e.target.value));
-  };
 
   return (
     <div>
@@ -32,7 +22,7 @@ const Title = () => {
             type="text"
             name="newTitleText"
             value={state.newTitleText}
-            onChange={handleChanges}
+            onChange={(e) => dispatch(actions.setNewTextTitle(e.target.value))}
           />
           <button
             onClick={() => {
