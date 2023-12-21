@@ -4,12 +4,6 @@ import {
   SET_NEWTEXTTITLE,
 } from "../actions/title.actions";
 
-export const initialState = {
-  title: "Hello earthlings",
-  editing: false,
-  newTitleText: "",
-};
-
 const reducer = (state, action) => {
   switch (action.type) {
     case SET_TITLE:

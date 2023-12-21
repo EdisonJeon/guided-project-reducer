@@ -1,6 +1,12 @@
 import React, { useReducer } from "react";
 import actions from "../actions/title.actions";
-import reducer, { initialState } from "../reducers/title.reducer";
+import reducer from "../reducers/title.reducer";
+
+const initialState = {
+  title: "Hello earthlings",
+  editing: false,
+  newTitleText: "",
+};
 
 const Title = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
